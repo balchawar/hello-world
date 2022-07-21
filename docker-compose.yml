@@ -1,0 +1,32 @@
+version= "1"
+services:
+
+	networks: 
+	  	app-tier:
+	    	  driver: bridge
+	backend:
+		container_name: app
+		restart: always
+		expose:
+		  - "18081"
+		ports:
+		  - "18081:18081"
+		links:
+		  - mongo		  
+		depends_on: 
+		  - db
+		build: .
+		command: bash -c 'while !<dev/tcp/db/270127; done; npm run start-dev'		 
+	  	networks: 
+	  	  - app-tier
+	db:
+		container_name: mongo
+		image: mongo
+		volumes:
+		  - ./data:/data/db
+		expose:
+		  - "27017"
+		ports:
+		  - "27017:27017"
+	  	networks: 
+	  	  - app-tier

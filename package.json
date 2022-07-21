@@ -1,0 +1,40 @@
+{
+  "name": "micro-service",
+  "version": "1.0.0",
+  "description": "-- --- --",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --timeout 20000",
+    "start": "nodemon app.js",
+    "prestart": "npm install",
+    "start-dev": "nodemon app.js",
+    "build-docs": "./node_modules/.bin/apidoc -i routes/ -o docs/"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": ""
+  },
+  "engines": {
+    "node": "14.x.x"
+  },
+  "homepage": "",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "bunyan": "^1.8.15",
+    "cors": "~2.7.1",
+    "debug": "^3.1.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.16.2",
+    "express-formidable": "^1.0.0",
+    "express-unless": "^0.3.1",
+    "express-validator": "^4.3.0",
+    "moment-timezone": "^0.5.34",
+    "mongoose": "5.12.12",
+    "mongoose-paginate": "^5.0.3",
+    "validator": "~4.0.5"
+  },
+  "devDependencies": {}
+}
